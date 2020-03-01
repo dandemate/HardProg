@@ -1,0 +1,18 @@
+1., Legyen adott egy mértani sorozat, melynek
+	a, első eleme 1024, kvóciense 1/2. Számítsa ki a 6. elemét!
+	b, első eleme 729, kvóciense 1/3. Számítsa ki az 5. elemét!
+	c, első eleme 15625, kvóciense 1/5. Számítsa ki a 4. elemét!
+
+2., A program számítsa ki a Fibonacci sorozat n-edik elemét! (n < 14 értékekre teszteljétek (a túlcsordulás miatt.))
+
+3., Adott A osztályú IP cím (/8 prefix). A program visszatérési értéke legyen ezen IP cím hálózati azonosítója!
+	pl. 0x7F000001 (127.0.0.1 - a pontozott decimális alak nem egyenlő a decimálissal!)
+		0x51A9B5B3 (81.169.181.179)
+
+4., A program egy negatív számból kettes komplemensének visszafejtésével állítsa elő az ellentetjét!
+	pl. -33 -> 33
+		0xC6 -> 58
+		0B11101111 -> 17
+
+    
+    
