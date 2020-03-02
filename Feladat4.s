@@ -3,13 +3,14 @@
 #		0xC6 -> 58
 #		0B11101111 -> 17
 
-		.intel_syntax noprefix
-		.globl main, x
+        .intel_syntax noprefix
+        .globl main, x
+        .data
 x:      .4byte  0B11101111
 
 main:
-		mov     eax, DWORD PTR [x]
-#   	neg     eax                  # egyszerűbb
-		not     eax                 # egyes komplemens
-		add     eax, 1              # kettes komplemens
-		ret
+        mov     eax, DWORD PTR [x]
+#       neg     eax                  # egyszerűbb
+        not     eax                 # egyes komplemens
+        add     eax, 1              # kettes komplemens
+        ret
