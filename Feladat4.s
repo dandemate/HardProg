@@ -3,9 +3,9 @@
 #		0xC6 -> 58
 #		0B11101111 -> 17
 
-            .intel_syntax noprefix
-            .globl main, x
-x:          .4byte  0B11101111
+		.intel_syntax noprefix
+		.globl main, x
+x:      .4byte  0B11101111
 
 main:
     mov     eax, DWORD PTR [x]
