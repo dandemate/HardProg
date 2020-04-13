@@ -9,6 +9,7 @@ max:
         mov     DWORD PTR[rbp-12], esi          # elemszám
         mov     DWORD PTR[rbp-8], 0             # i
         mov     DWORD PTR[rbp-4], 0             # max
+        mov     ebx, DWORD PTR[rbp-8]
         jmp     COND
         mov     rsp, rbp
         pop     rbp
@@ -16,13 +17,14 @@ max:
 
 BODY:   mov     ebx, DWORD PTR[rbp-8]                   # i
         mov     ecx, DWORD PTR[rbp-4]                   # max
-        mov     eax, DWORD PTR[rbp-16+ebx*4]            # kezdőcím - i*4  (aktuális elem) 
+        cdqe                                            
+        mov     eax, DWORD PTR[rbp-16+rbx*4]            # kezdőcím - i*4  (aktuális elem) 
         cmp     ecx, eax                                # ecx-> max, eax -> tömb i. eleme
         jl      IF                                      # ha max kisebb mint tomb i. eleme
         inc     ebx                                     
         mov     DWORD PTR[rbp-8], ebx                           
 
-COND:   cmp     edx, esi
+COND:   cmp     ebx, esi
         jl      BODY
         mov     eax, DWORD PTR[rbp-4]
         mov     rsp, rbp
