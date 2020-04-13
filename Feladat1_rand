@@ -1,0 +1,44 @@
+# Írjunk egy programot, mely generál egy randomszámot, és eldönti róla, hogy páros-e! Ha
+# igen, a program írja ki a képernyőre a ’T’, ha nem, az ’F’ karaktert. A program visszatérési
+# értéke a generált randomszám legyen.     
+#
+# Dandé Máté
+	 
+		.intel_syntax noprefix
+        .globl  main
+
+main:
+                push    rbp
+                mov     rbp, rsp
+                #sub     rsp, 4
+                #mov     eax, 0                      
+                #mov     DWORD PTR[rbp-4], eax
+                #call    time                           #sehogy se jó
+                #mov     DWORD PTR[rbp-4], eax
+                #call    srand          
+                call    rand                            # mindig 103 az érték
+                #mov     eax, 100                       # teszt páros számra
+                cdq
+                mov     ecx, 2    
+                idiv    ecx
+                cmp     edx, 1                          
+                jne     PAROS                           
+                jmp     PARATLAN
+
+PAROS:          mov     edi, 0x54
+                call    putchar                         # T -> HEX: 0x54 DEC: 84 
+                mov     edi, 0x0A
+                call    putchar                         # \n -> HEX: 0x0A DEC: 10 
+                mov     rsp, rbp
+                pop     rbp
+                ret
+
+PARATLAN:                
+                mov     edi, 0x46
+                call    putchar                         # F -> HEX: 0x46 DEC: 70 
+                mov     edi, 0x0A
+                call    putchar                         # \n -> HEX: 0x0A DEC: 10 
+                mov     rsp, rbp
+                pop     rbp
+                ret
+
