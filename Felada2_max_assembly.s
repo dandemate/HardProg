@@ -33,3 +33,7 @@ COND:   cmp     edx, esi
 IF:     mov     DWORD PTR[rbp-4], eax        
         inc     ebx
         mov     DWORD PTR[rbp-8], ebx
+        jmp     COND
+        
+
+                                  
