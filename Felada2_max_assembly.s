@@ -14,22 +14,22 @@ max:
         pop     rbp
         ret
 
-BODY:   mov     ebx, DWORD PTR[rbp-8]
-        mov     eax, DWORD PTR[rbp-16+ebx*4]            # kezdőcím - i*4   
-        cmp     ecx, eax                                 # ecx-> max, eax -> tömb i. eleme
-        jl      IF                                       # ha max kisebb mint tomb i. eleme
-        inc     ebx
+BODY:   mov     ebx, DWORD PTR[rbp-8]                   # i
+        mov     ecx, DWORD PTR[rbp-4]                   # max
+        mov     eax, DWORD PTR[rbp-16+ebx*4]            # kezdőcím - i*4  (aktuális elem) 
+        cmp     ecx, eax                                # ecx-> max, eax -> tömb i. eleme
+        jl      IF                                      # ha max kisebb mint tomb i. eleme
+        inc     ebx                                     
         mov     DWORD PTR[rbp-8], ebx                           
 
 COND:   cmp     edx, esi
         jl      BODY
+        mov     eax, DWORD PTR[rbp-4]
         mov     rsp, rbp
         pop     rbp
         ret
 
 
-IF:     mov     ecx, DWORD PTR[rbp-4]
+IF:     mov     DWORD PTR[rbp-4], eax        
         inc     ebx
-        
-
-                                  
+        mov     DWORD PTR[rbp-8], ebx
