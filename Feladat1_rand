@@ -4,20 +4,15 @@
 #
 # Dandé Máté
 	 
-		.intel_syntax noprefix
+	        .intel_syntax noprefix
         .globl  main
 
 main:
-                push    rbp
-                mov     rbp, rsp
-                #sub     rsp, 4
-                #mov     eax, 0                      
-                #mov     DWORD PTR[rbp-4], eax
-                #call    time                           #sehogy se jó
-                #mov     DWORD PTR[rbp-4], eax
-                #call    srand          
-                call    rand                            # mindig 103 az érték
-                #mov     eax, 100                       # teszt páros számra
+                mov     edi, 0                      
+                call    time                            
+                mov     edi, eax
+                call    srand          
+                call    rand                           
                 cdq
                 mov     ecx, 2    
                 idiv    ecx
@@ -29,8 +24,6 @@ PAROS:          mov     edi, 0x54
                 call    putchar                         # T -> HEX: 0x54 DEC: 84 
                 mov     edi, 0x0A
                 call    putchar                         # \n -> HEX: 0x0A DEC: 10 
-                mov     rsp, rbp
-                pop     rbp
                 ret
 
 PARATLAN:                
@@ -38,7 +31,5 @@ PARATLAN:
                 call    putchar                         # F -> HEX: 0x46 DEC: 70 
                 mov     edi, 0x0A
                 call    putchar                         # \n -> HEX: 0x0A DEC: 10 
-                mov     rsp, rbp
-                pop     rbp
                 ret
 
