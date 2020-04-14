@@ -4,14 +4,14 @@
 #
 # Dandé Máté
 		
-		.intel_syntax noprefix
+	.intel_syntax noprefix
         .globl  max
 
 max:
         push    rbp
         mov     rbp, rsp
         sub     rsp, 20
-        mov     DWORD PTR[rbp-20], edi          # kezdőcím 
+        mov     QWORD PTR[rbp-20], rdi          # kezdőcím 
         mov     DWORD PTR[rbp-12], esi          # elemszám
         mov     DWORD PTR[rbp-8], 0             # i
         mov     DWORD PTR[rbp-4], 0             # max
